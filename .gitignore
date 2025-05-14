@@ -1,18 +1,14 @@
-# Environment files
-.env
-.env.*            # .env.development, .env.test, dsb.
+#–– Ignore semua file .env di mana saja ––
+**/.env
+**/.env.*         # kalau ada .env.development, .env.test, dsb.
 
-# Dependencies
+#–– Dependencies & build––
 node_modules/
-
-# Build output
 dist/
 build/
 
-# Logs
+#–– Lain-lain ––
+.DS_Store
 npm-debug.log*
 yarn-debug.log*
-
-# OS & editor
-.DS_Store
 .vscode/
