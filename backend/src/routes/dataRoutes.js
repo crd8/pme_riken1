@@ -1,4 +1,3 @@
-// backend/src/routes/dataRoutes.js
 const express = require('express');
 const { Op } = require('sequelize');
 const DataRealtime = require('../models/DataRealtime');
@@ -9,14 +8,12 @@ router.get('/', async (req, res) => {
     const sinceMs = parseInt(req.query.since) || 0;
     const sinceDate = new Date(sinceMs);
 
-    // Ambil 25 data terbaru sejak `sinceDate`, terurut terbaru ke terlama
     const rowsDesc = await DataRealtime.findAll({
       where: { time: { [Op.gt]: sinceDate } },
       order: [['time', 'DESC']],
-      limit: 25
+      limit: 50
     });
 
-    // Urutkan kembali ascending (terlama ke terbaru)
     const rows = rowsDesc.reverse();
 
     res.json(rows);

@@ -16,7 +16,6 @@ module.exports = new Sequelize(
       idle: 10000,
     },
     define: {
-      // disable alter table auto-check
       timestamps: false,
     }
   }
